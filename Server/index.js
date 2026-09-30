@@ -9,7 +9,6 @@ const { check, validationResult } = require('express-validator');
 const app = express();
 app.use(express.static("public"));
 
-
 //Stylesheet
 app.use(express.static(__dirname + '/public'));
 //Webpage
