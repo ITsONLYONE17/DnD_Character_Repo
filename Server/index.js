@@ -7,7 +7,6 @@ const { check, validationResult } = require('express-validator');
 
 //Setup defaults for script
 const app = express();
-app.use(cors());
 app.use(express.static("public"));
 
 
