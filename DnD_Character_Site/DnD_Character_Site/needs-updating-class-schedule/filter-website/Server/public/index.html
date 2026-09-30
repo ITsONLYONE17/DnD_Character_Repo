@@ -1,0 +1,710 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Spring 2025 Course Schedule</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="stylesheet.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+        
+</head>
+
+<body>
+    <h1>DnD Player Characters</h1>
+    
+    <button class="openbtn" onclick="openNavInsert()">&#9776; Add Character</button>
+    <button class="openbtn" onclick="openNavUpdate()">&#9776; Edit Character</button>
+
+    <hr/>
+
+    <!--Panel content-->
+
+    <div id="mySidepanelInsert" class="sidepanelInsert">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNavInsert()">&times;</a>
+    <h2>Insert Character</h2>
+     <div class="container">
+        <!--Name-->
+        <div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><label>Name</label></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><input class="statsMargin" id="character_name_insert" type="text"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Class-->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><label>Class</label></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><input class="statsMargin" id="character_class_insert" type="text"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Race-->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><label>Race</label></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><input class="statsMargin" id="character_race_insert" type="text"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Level-->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><label>Level</label></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><input class="statsMargin" id="character_level_insert" type="number"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Strength & Dexterity-->
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><label>Strength</label></div>
+                <div class="col-md-5"><label>Dexterity</label></div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_strength_insert" type="number"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_dexterity_insert" type="number"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Constitution & Intelligence-->
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><label>Consitution</label></div>
+                <div class="col-md-5"><label>Intelligence</label></div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_constitution_insert" type="number"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_intelligence_insert" type="number"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Wisdom & Charisma-->
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><label>Wisdom</label></div>
+                <div class="col-md-5"><label>Charisma</label></div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_wisdom_insert" type="number"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_charisma_insert" type="number"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <br>
+            <button id='insertCharacter'>Create Character</button>
+        </div>
+     </div>
+    </div>
+
+    <div id="mySidepanelUpdate" class="sidepanelUpdate">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNavUpdate()">&times;</a>
+    <h2>Update Character</h2>
+     <div class="container">
+        <!--Name-->
+        <div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><label>Original/Current Character Name</label></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><input class="statsMargin" id="character_originalName_update" type="text"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><label>New Name</label></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><input class="statsMargin" id="character_name_update" type="text"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Class-->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><label>Class</label></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><input class="statsMargin" id="character_class_update" type="text"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Race-->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><label>Race</label></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><input class="statsMargin" id="character_race_update" type="text"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Level-->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><label>Level</label></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><input class="statsMargin" id="character_level_update" type="number"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Strength & Dexterity-->
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><label>Strength</label></div>
+                <div class="col-md-5"><label>Dexterity</label></div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_strength_update" type="number"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_dexterity_update" type="number"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Constitution & Intelligence-->
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><label>Consitution</label></div>
+                <div class="col-md-5"><label>Intelligence</label></div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_constitution_update" type="number"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_intelligence_update" type="number"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--Wisdom & Charisma-->
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><label>Wisdom</label></div>
+                <div class="col-md-5"><label>Charisma</label></div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_wisdom_update" type="number"></div>
+                <div class="col-md-5"><input class="inputStats" id="character_charisma_update" type="number"></div>
+                <div class="col-md-1"></div>
+            </div>
+            <br>
+            <button id='updateCharacter'>Update Character</button>
+        </div>
+     </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <!-- DnD_Player_Characters List -->
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div class='row mb-3'>
+                    <div class='col-md-2'>
+                        <label>Name</label>
+                    </div>
+                    <div class='col-md-10'>
+                        <input id='character_name' type='text' />
+                    </div>
+                </div>
+                
+                <div class='row mb-3'>
+                    <div class='col-md-2'>
+                        <label>Race</label>
+                    </div>
+                    <div class='col-md-10'>
+                        <input id='race' type='text'/>
+                    </div>
+                </div>
+                
+                <div class='row mb-3'>
+                    <div class='col-md-2'>
+                        <label>Class</label>
+                    </div>
+                    <div class='col-md-10'>
+                        <input id='class' type='text'/>
+                    </div>
+                </div>
+
+                <div class='row mb-3'>
+                    <div class='col-md-2'>
+                        <label>Character Level</label>
+                    </div>
+                    <div class='col-md-10'>
+                        <select id='level'>
+                            <option value=''></option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                            <option value='9'>9</option>
+                            <option value='10'>10</option>
+                            <option value='11'>11</option>
+                            <option value='12'>12</option>
+                            <option value='13'>13</option>
+                            <option value='14'>14</option>
+                            <option value='15'>15</option>
+                            <option value='16'>16</option>
+                            <option value='17'>17</option>
+                            <option value='18'>18</option>
+                            <option value='19'>19</option>
+                            <option value='20'>20</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class='row mb-3'>
+                    <div class='col-md-2'>
+                        <label>Sort By Character Level</label>
+                    </div>
+                    <div class='col-md-10'>
+                        <select id='sort'>
+                            <option value=''></option>
+                            <option value='ASC'>Ascending</option>
+                            <option value='DESC'>Descending</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <!-- DnD_Player_Stats List -->
+                <div class="row mb-3">
+                    <div class="col-md-3 statsMargin">
+                        <div class="row">
+                            <label>Strength</label>
+                        </div>
+                        <div class="row">
+                            <input id="strength" type="number">
+                        </div>
+                    </div>
+                    <div class="col-md-3 statsMargin">
+                        <div class="row">
+                            <label>Dexterity</label>
+                        </div>
+                        <div class="row">
+                            <input id="dexterity" type="number">
+                        </div>
+                    </div>
+                    <div class="col-md-3 statsMargin">
+                        <div class="row">
+                            <label>Constitution</label>
+                        </div>
+                        <div class="row">
+                            <input id="constitution" type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 statsMargin">
+                        <div class="row">
+                            <label>Intelligence</label>
+                        </div>
+                        <div class="row">
+                            <input id="intelligence" type="number">
+                        </div>
+                    </div>
+                    <div class="col-md-3 statsMargin">
+                        <div class="row">
+                            <label>Wisdom</label>
+                        </div>
+                        <div class="row">
+                            <input id="wisdom" type="number">
+                        </div>
+                    </div>
+                    <div class="col-md-3 statsMargin">
+                        <div class="row">
+                            <label>Charisma</label>
+                        </div>
+                        <div class="row">
+                            <input id="charisma" type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 statsMargin"></div>
+                    <div class="col-md-3 statsMargin">
+                        <div class="row">
+                            <label>Limit answers:</label>
+                        </div>
+                        <div class="row">
+                            <input type="number" id="limit">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class='row mb-3'>
+            <div class='col-md-12'>
+                <button id='search'>Search for Characters</button>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <hr/>
+
+    <div id='characters' class='overflow'>
+        Characters go here.
+    </div>
+
+    <script>
+        function openNavInsert() {
+            if(document.getElementById("mySidepanelInsert").style.width == "0px" || document.getElementById("mySidepanelInsert").style.width == ""){
+                document.getElementById("mySidepanelInsert").style.width = "300px";
+            }else{
+                document.getElementById("mySidepanelInsert").style.width = "0px";
+            }
+        }
+
+        /* Set the width of the sidebar to 0 (hide it) */
+        function closeNavInsert() {
+            document.getElementById("mySidepanelInsert").style.width = "0";
+        }
+        
+        function openNavUpdate() {
+            if(document.getElementById("mySidepanelUpdate").style.width == "0px" || document.getElementById("mySidepanelUpdate").style.width == ""){
+                document.getElementById("mySidepanelUpdate").style.width = "300px";
+            }else{
+                document.getElementById("mySidepanelUpdate").style.width = "0px";
+            }
+        }
+
+        /* Set the width of the sidebar to 0 (hide it) */
+        function closeNavUpdate() {
+            document.getElementById("mySidepanelUpdate").style.width = "0";
+        }
+    </script>
+
+    <script>
+        const isEmpty = (obj) => Object.keys(obj).length === 0;
+
+        document.getElementById('search').addEventListener('click', (event) => {
+            const getParameters = {};
+
+            // Player Character Update
+            
+            //The document.getElementById('character_name') needs to use the id of the form element
+            if (document.getElementById('character_name').value.length !== 0) {
+                //parameters.character_name will turn into example.com/?character_name=XXXX
+                getParameters.character_name = document.getElementById('character_name').value;
+            }
+
+            //The document.getElementById('race') needs to use the id of the form element
+            if (document.getElementById('race').value.length !== 0) {
+                getParameters.race = document.getElementById('race').value;
+            }
+
+            //The document.getElementById('class') needs to use the id of the form element
+            if (document.getElementById('class').value.length !== 0) {
+                getParameters.class = document.getElementById('class').value;
+            }
+
+            //The document.getElementById('level') needs to use the id of the form element
+            if (document.getElementById('level').value.length !== 0) {
+                getParameters.level = document.getElementById('level').value;
+            }
+            
+            // Player Stats Update
+
+            if (document.getElementById('strength').value.length !== 0) {
+                getParameters.strength = document.getElementById('strength').value;
+            }
+
+            if (document.getElementById('dexterity').value.length !== 0) {
+                getParameters.dexterity = document.getElementById('dexterity').value;
+            }
+
+            if (document.getElementById('constitution').value.length !== 0) {
+                getParameters.constitution = document.getElementById('constitution').value;
+            }
+
+            if (document.getElementById('intelligence').value.length !== 0) {
+                getParameters.intelligence = document.getElementById('intelligence').value;
+            }
+
+            if (document.getElementById('wisdom').value.length !== 0) {
+                getParameters.wisdom = document.getElementById('wisdom').value;
+            }
+
+            if (document.getElementById('charisma').value.length !== 0) {
+                getParameters.charisma = document.getElementById('charisma').value;
+            }
+
+            // Sorting/Limiting
+            
+            if (document.getElementById('limit').value.length !== 0) {
+                getParameters.limit = document.getElementById('limit').value;
+            }
+            
+            if (document.getElementById('sort').value.length !== 0) {
+                console.log("Made it to sort");
+                getParameters.sort = document.getElementById('sort').value;
+            }
+
+            //Settings for FETCH API request
+            let fetchSettings = {
+                method: 'GET'
+            };
+
+            //Send FETCH API request
+            fetch("http://localhost/playercharacters/" + (!isEmpty(getParameters) ? '?' + new URLSearchParams(getParameters) : ''), fetchSettings)
+                .then((response) => {
+                    return new Promise((resolve) => response.json()
+                        .then((json) => resolve({
+                            status: response.status,
+                            json,
+                        })
+                    ));
+                })
+                //Logic to display errors on form 
+                .then(({ status, json }) => {
+                    if (status === 200) {
+                        let displayTable = 
+                        '<div class="container">' +
+                            '<div class="row">' + 
+                            '<div class="col-md-1>' +
+                            '<div class="col-md-10>' +
+                            '<table>' +
+                                    '<thead>' +
+                                        '<tr>' +
+                                            '<th width="10%"">Character Name</th>' +
+                                            '<th width="10%">Race</th>' +
+                                            '<th width="10%">Class</th>' +
+                                            '<th width="10%">Level</th>' +
+                                            '<th width="10%">Strength</th>' +
+                                            '<th width="10%">Dexterity</th>' +
+                                            '<th width="10%">Consitution</th>' +
+                                            '<th width="10%">Intelligence</th>' +
+                                            '<th width="10%">Wisdom</th>' +
+                                            '<th width="10%">Charisma</th>' +
+                                        '</tr>' +
+                                    '</thead>' +
+                                '<tbody>';
+                        if (typeof json.data !== 'undefined') {
+                            for (row of json.data) {
+                                displayTable += 
+                                        '<tr>' +
+                                            '<td class="tableRowLeft">' + row.character_name + '</td>' +
+                                            '<td>' + row.race + '</td>' +
+                                            '<td>' + row.class + '</td>' +
+                                            '<td>' + row.level + '</td>' +
+                                            '<td>' + row.strength + '</td>' +
+                                            '<td>' + row.dexterity + '</td>' +
+                                            '<td>' + row.constitution + '</td>' +
+                                            '<td>' + row.intelligence + '</td>' +
+                                            '<td>' + row.wisdom + '</td>' +
+                                            '<td class="tableRowRight">' + row.charisma + '</td>' +
+                                        '</tr>';
+                            }
+                        }
+                        displayTable += '</tbody></table></div></div></div>';
+                        document.getElementById('characters').innerHTML = displayTable;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });               
+
+        document.getElementById('insertCharacter').addEventListener('click', (event) => {
+            const formData = new FormData();
+            
+            //Collect form data with correct parameter names
+            if (document.getElementById('character_name_insert').value.length !== 0) {
+                formData.append('character_name_insert', document.getElementById('character_name_insert').value);
+            }
+
+            if (document.getElementById('character_race_insert').value.length !== 0) {
+                formData.append('character_race_insert', document.getElementById('character_race_insert').value);
+            }
+
+            if (document.getElementById('character_class_insert').value.length !== 0) {
+                formData.append('character_class_insert', document.getElementById('character_class_insert').value);
+            }
+
+            if (document.getElementById('character_level_insert').value.length !== 0) {
+                formData.append('character_level_insert', document.getElementById('character_level_insert').value);
+            }
+            
+            // Player Stats
+
+            if (document.getElementById('character_strength_insert').value.length !== 0) {
+                formData.append('character_strength_insert', document.getElementById('character_strength_insert').value);
+            }
+
+            if (document.getElementById('character_dexterity_insert').value.length !== 0) {
+                formData.append('character_dexterity_insert', document.getElementById('character_dexterity_insert').value);
+            }
+
+            if (document.getElementById('character_constitution_insert').value.length !== 0) {
+                formData.append('character_constitution_insert', document.getElementById('character_constitution_insert').value);
+            }
+
+            if (document.getElementById('character_intelligence_insert').value.length !== 0) {
+                formData.append('character_intelligence_insert', document.getElementById('character_intelligence_insert').value);
+            }
+
+            if (document.getElementById('character_wisdom_insert').value.length !== 0) {
+                formData.append('character_wisdom_insert', document.getElementById('character_wisdom_insert').value);
+            }
+
+            if (document.getElementById('character_charisma_insert').value.length !== 0) {
+                formData.append('character_charisma_insert', document.getElementById('character_charisma_insert').value);
+            }
+
+            //Settings for FETCH API request
+            let fetchSettings = {
+                method: 'POST',
+                body: formData
+            };
+
+            //Send FETCH API request
+            fetch("http://localhost/playercharacters/", fetchSettings)
+                .then((response) => {
+                    return new Promise((resolve) => response.json()
+                        .then((json) => resolve({
+                            status: response.status,
+                            json,
+                        })
+                    ));
+                })
+                .then(({ status, json }) => {
+                    if (status === 200 || status === 400) {
+                        console.log("Response:", json);
+                        alert(json.message || 'Character Insert processed');
+                    }
+                    if(status === 400){
+                        for(error of json.errors){
+                            alert(error.msg);
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });   
+        
+        document.getElementById('updateCharacter').addEventListener('click', (event) => {
+            const formData = new FormData();
+            
+            if (document.getElementById('character_originalName_update').value.length !== 0) {
+                formData.append('character_originalName_update', document.getElementById('character_originalName_update').value);
+            }
+
+            //Collect form data with correct parameter names
+            if (document.getElementById('character_name_update').value.length !== 0) {
+                formData.append('character_name_update', document.getElementById('character_name_update').value);
+            }
+
+            if (document.getElementById('character_race_update').value.length !== 0) {
+                formData.append('character_race_update', document.getElementById('character_race_update').value);
+            }
+
+            if (document.getElementById('character_class_update').value.length !== 0) {
+                formData.append('character_class_update', document.getElementById('character_class_update').value);
+            }
+
+            if (document.getElementById('character_level_update').value.length !== 0) {
+                formData.append('character_level_update', document.getElementById('character_level_update').value);
+            }
+            
+            // Player Stats
+
+            if (document.getElementById('character_strength_update').value.length !== 0) {
+                formData.append('character_strength_update', document.getElementById('character_strength_update').value);
+            }
+
+            if (document.getElementById('character_dexterity_update').value.length !== 0) {
+                formData.append('character_dexterity_update', document.getElementById('character_dexterity_update').value);
+            }
+
+            if (document.getElementById('character_constitution_update').value.length !== 0) {
+                formData.append('character_constitution_update', document.getElementById('character_constitution_update').value);
+            }
+
+            if (document.getElementById('character_intelligence_update').value.length !== 0) {
+                formData.append('character_intelligence_update', document.getElementById('character_intelligence_update').value);
+            }
+
+            if (document.getElementById('character_wisdom_update').value.length !== 0) {
+                formData.append('character_wisdom_update', document.getElementById('character_wisdom_update').value);
+            }
+
+            if (document.getElementById('character_charisma_update').value.length !== 0) {
+                formData.append('character_charisma_update', document.getElementById('character_charisma_update').value);
+            }
+
+            //Settings for FETCH API request
+            let fetchSettings = {
+                method: 'PUT',
+                body: formData
+            };
+
+            //Send FETCH API request
+            fetch("http://localhost/playercharacters/", fetchSettings)
+                .then((response) => {
+                    return new Promise((resolve) => response.json()
+                        .then((json) => resolve({
+                            status: response.status,
+                            json,
+                        })
+                    ));
+                })
+                .then(({ status, json }) => {
+                    if (status === 200 || status === 400) {
+                        console.log("Response:", json);
+                        alert(json.message || 'Character update processed');
+                    }
+                    if(status === 400){
+                        for(error of json.errors){
+                            alert(error.msg);
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });   
+    </script>
+</body>
+
+</html>
