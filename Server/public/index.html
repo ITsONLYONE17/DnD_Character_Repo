@@ -486,8 +486,7 @@
             };
 
             //Send FETCH API request
-            fetch("http://18.225.75.237/playercharacters/" + (!isEmpty(getParameters) ? '?' + new URLSearchParams(getParameters) : ''), fetchSettings)
-                .then((response) => {
+            fetch("/playercharacters/" + (!isEmpty(getParameters) ? "?" + new URLSearchParams(getParameters) : ""), fetchSettings)
                     return new Promise((resolve) => response.json()
                         .then((json) => resolve({
                             status: response.status,
