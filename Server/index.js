@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 
 const upload = multer()
-const port = 80 //Default port to http server
+const port = 8080 //Default port to http server
 
 let connection = null;
 
